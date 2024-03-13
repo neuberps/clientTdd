@@ -17,7 +17,7 @@ public class ClientService {
     public List<ClientDTO> findAll() {
         List<Client> list = repository.findAll();
         List<ClientDTO> listDTO = list.stream().map(ClientDTO::new).toList();
-        return listDTO ;
+        return listDTO;
     }
 
     public ClientDTO create(ClientDTO clientDTO) {
@@ -28,6 +28,10 @@ public class ClientService {
 
     public ClientDTO findById(String id) {
         Client entity =  repository.findById(id).get();
+        return new ClientDTO(entity);
+    }
+    public ClientDTO findByEmail(String id) {
+        Client entity =  repository.findByEmail(id).get();
         return new ClientDTO(entity);
     }
 

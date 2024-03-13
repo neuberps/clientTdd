@@ -26,9 +26,13 @@ public class ClientController {
         return ResponseEntity.ok().body(service.create(entity));
     }
 
-    @GetMapping(value="/{id}")
+    @GetMapping(value="/getId/{id}")
     public ResponseEntity<ClientDTO> findById(@PathVariable String id){
         return ResponseEntity.status(HttpStatus.OK).body( service.findById(id));
+    }
+    @GetMapping(value="/getEmail/{email}")
+    public ResponseEntity<ClientDTO> findByEmail(@PathVariable String email){
+        return ResponseEntity.status(HttpStatus.OK).body( service.findByEmail(email));
     }
 
     @PutMapping(value="/{id}")
